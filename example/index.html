@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Hover Demo</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="container"></div>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/smart-hover.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var smartHover = $("#container").smartHover({
+            background: 'img/tux&tuxina-background.png',
+            images: [
+                'img/tux&tuxina-left-hover.png',
+                'img/tux&tuxina-right-hover.png'
+            ],
+            imageClass: 'my-class',
+            exclusive: false,
+            onClick: function(image) {
+                if( image.toggled ) {
+                    alert("Image enabled");
+                }
+                else {
+                    alert("Image disabled");
+                }
+            },
+            onHover: function(image) {
+                // Something
+            }
+        });
+    });
+</script>
+</body>
+
+</html>
