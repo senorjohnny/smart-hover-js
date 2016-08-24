@@ -4,7 +4,8 @@ body {
 }
 #container {
     margin: 35px auto;
+    width: 960px;
+    height: 517px;
     background-color: white;
-	padding: 10px;
+    padding: 10px;
 }
-
