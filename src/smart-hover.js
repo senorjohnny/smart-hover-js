@@ -15,7 +15,7 @@
             options.images = (typeof options.images !== "object") ? [options.images] : options.images;
         }
         options.imageClass = options.imageClass || 'SmartHoverDev-images';
-        options.exsclusive = options.exsclusive || false;
+        options.exclusive = options.exclusive || false;
         options.onHover = options.onHover || function(){};
         options.onClick = options.onClick || function(){};
 
@@ -128,11 +128,11 @@
                     y: ev.offsetY
                 };
                 var images = getImagesUnderCursor(offset);
-                if( options.exsclusive ) {
+                if( options.exclusive ) {
                     persistant.length = 0;
                 }
                 for(var i = 0; i < images.length; i++) {
-                    if( options.exsclusive ) {
+                    if( options.exclusive ) {
                         hideImage(images[i].ind);
                     }
                     if( images[i].underCursor ) {
