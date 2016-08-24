@@ -84,7 +84,8 @@
             for(var i = 0; i < $images.length; i++) {
                 images.push({
                     ind: i,
-                    underCursor: isUnderCursor(i, position)
+                    underCursor: isUnderCursor(i, position),
+                    src: $images[i].attr('src')
                 });
             }
             return images;
@@ -99,13 +100,13 @@
                 if( images[i].underCursor ) {
                     showImage(images[i].ind);
                     $images[images[i].ind].addClass(hoveredClass);
-                    $this.trigger('hoverHovered', {image: images[i].ind});
+                    $this.trigger('hoverHovered', {image: images[i].ind, src: images[i].src});
                 }
                 else {
                     if( persistant.indexOf(images[i].ind) === -1 ) {
                         hideImage(images[i].ind);
                     }
-                    $this.trigger('hoverUnhovered', {image: images[i].ind});
+                    $this.trigger('hoverUnhovered', {image: images[i].ind, src: images[i].src});
                     $images[images[i].ind].removeClass(hoveredClass);
                 }
             }
@@ -140,13 +141,13 @@
                             persistant.push(images[i].ind);
                             showImage(images[i].ind);
                             $images[images[i].ind].addClass(clickedClass);
-                            $this.trigger('hoverClicked', {ind: images[i].ind, toggled: true});
+                            $this.trigger('hoverClicked', {ind: images[i].ind, toggled: true, src: images[i].src});
                         }
                         else {
                             var ind = persistant.indexOf(images[i].ind);
                             persistant.splice(ind, 1);
                             $images[images[i].ind].removeClass(clickedClass);
-                            $this.trigger('hoverClicked', {ind: images[i].ind, toggled: false});
+                            $this.trigger('hoverClicked', {ind: images[i].ind, toggled: false, src: images[i].src});
                         }
                     }
                 }

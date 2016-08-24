@@ -26,9 +26,11 @@
             onClick: function(image) {
                 if( image.toggled ) {
                     alert("Image enabled");
+                    console.log(image.src);
                 }
                 else {
                     alert("Image disabled");
+                    console.log(image.src);
                 }
             },
             onHover: function(image) {
